@@ -33,7 +33,8 @@ class TaskController extends Controller
      */
     public function store(StoreTaskRequest $request)
     {
-        //
+        // call Task model and save calling create method:
+        $task = Task::create($request->validated());
     }
 
     /**
