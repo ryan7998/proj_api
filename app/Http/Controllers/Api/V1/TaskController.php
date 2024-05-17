@@ -6,6 +6,7 @@ use App\Models\Task;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreTaskRequest;
 use App\Http\Requests\UpdateTaskRequest;
+use App\Http\Resources\TaskResource;
 
 class TaskController extends Controller
 {
@@ -14,7 +15,9 @@ class TaskController extends Controller
      */
     public function index()
     {
-        return Task::all();
+        // return Task::all();
+        // as we have created TaskReource we can now return in the following way instead of the previous method:
+        return TaskResource::collection(Task::all());
     }
 
     /**
@@ -38,7 +41,8 @@ class TaskController extends Controller
      */
     public function show(Task $task)
     {
-        //
+        // return single resource:
+        return TaskResource::make($task);
     }
 
     /**
