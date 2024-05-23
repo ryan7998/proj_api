@@ -11,4 +11,9 @@ class Task extends Model
 
     // specify the accessible column in the fillable attribute:
     protected $fillable = ['name'];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
